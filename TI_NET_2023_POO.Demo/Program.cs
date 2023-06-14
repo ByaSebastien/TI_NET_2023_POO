@@ -1,15 +1,15 @@
 ﻿using TI_NET_2023_POO.Demo.Models;
 
-List<Entity> entities = new List<Entity>()
-{
-    new Entity("Dante"),
-    new Entity("Vergil"),
-    new Entity("Nero")
-};
 
 Casting c = new Casting()
 {
-    entities = entities
+    Name = "Casting DMC",
+    Entities = new List<Entity>()
+    {
+        new Entity("Dante"),
+        new Entity("Vergil"),
+        new Entity("Nero")
+    },
 };
 
 c["Dante"].Stats[StatType.Hp] = 800000000;

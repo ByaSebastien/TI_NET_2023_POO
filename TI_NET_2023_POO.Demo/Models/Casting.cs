@@ -8,13 +8,14 @@ namespace TI_NET_2023_POO.Demo.Models
 {
     public class Casting
     {
-        public List<Entity> entities {get; set;}
+        public string Name { get; set; }
+        public List<Entity> Entities {get; set;}
 
         public Entity? this[string name]
         {
             get
             {
-                foreach(Entity e in entities)
+                foreach(Entity e in Entities)
                 {
                     if (e.Name == name)
                     {
@@ -25,11 +26,11 @@ namespace TI_NET_2023_POO.Demo.Models
             }
             set
             {
-                for(int i = 0 ; i < entities.Count; i++)
+                for(int i = 0 ; i < Entities.Count; i++)
                 {
-                    if (entities[i].Name == name)
+                    if (Entities[i].Name == name)
                     {
-                        entities[i] = value;
+                        Entities[i] = value;
                     }
                 }
             }
