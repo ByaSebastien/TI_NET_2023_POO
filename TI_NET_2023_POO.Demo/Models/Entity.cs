@@ -18,6 +18,8 @@ namespace TI_NET_2023_POO.Demo.Models
 
         private string _name;
 
+        private Stats _stats = new Stats();
+
         #endregion
 
 
@@ -27,9 +29,9 @@ namespace TI_NET_2023_POO.Demo.Models
         {
             Random r = new Random();
             Name = name;
-            Hp = r.Next(5, 10);
-            Strength = r.Next(5, 10);
-            Stamina = r.Next(5, 10);
+            Stats[StatType.Hp] = r.Next(5, 10);
+            Stats[StatType.Strength] = r.Next(5, 10);
+            Stats[StatType.Stamina] = r.Next(5, 10);
         }
 
         #endregion
@@ -49,9 +51,8 @@ namespace TI_NET_2023_POO.Demo.Models
             }
         }
 
-        public int Hp { get; set; }
-        public int Strength { get; set; }
-        public int Stamina { get; set; }
+        public Stats Stats { get { return _stats; } }
+
 
         #endregion
 
@@ -60,8 +61,8 @@ namespace TI_NET_2023_POO.Demo.Models
         public override string ToString()
         {
             return $"Nom : {Name}\n" +
-                   $"Pv : {Hp}\n" +
-                   $"Endurance : {Stamina}\n";
+                   $"Pv : {Stats[StatType.Hp]}\n" +
+                   $"Endurance : {Stats[StatType.Stamina]}\n";
         }
 
         #endregion
