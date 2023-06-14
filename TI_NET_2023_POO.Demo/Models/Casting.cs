@@ -33,6 +33,7 @@ namespace TI_NET_2023_POO.Demo.Models
                         Entities[i] = value;
                     }
                 }
+                Entities.Add(value);
             }
         }
     }
