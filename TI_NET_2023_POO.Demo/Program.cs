@@ -1,35 +1,80 @@
 ﻿using TI_NET_2023_POO.Demo.Models;
+using TI_NET_2023_POO.Demo.Models.Vehicules;
+
+//Casting c = new Casting()
+//{
+//    Name = "Casting DMC",
+//    Entities = new List<Hero>()
+//    {
+//        new Hero("Dante"),
+//        new Hero("Vergil"),
+//        new Hero("Nero")
+//    },
+//};
+
+////c["Dante"].Stats[StatType.Hp] = 800000000;
 
 
-Casting c = new Casting()
+
+//Hero fusion = c.Entities[0] + c.Entities[1];
+//c.Entities.Add(fusion);
+
+//Hero dante = new Hero("Dante");
+
+
+//foreach (Hero entity in c.Entities)
+//{
+//    Console.WriteLine(entity);
+//}
+
+//dante = c.Entities[1];
+
+//Console.WriteLine(dante);
+
+//Employee noreen = new Employee();
+
+List<Vehicule> catalog = new List<Vehicule>()
 {
-    Name = "Casting DMC",
-    Entities = new List<Entity>()
+    new Vehicule()
     {
-        new Entity("Dante"),
-        new Entity("Vergil"),
-        new Entity("Nero")
+        Marque = "",
+        Prix = 99999999,
     },
+    new Voiture()
+    {
+        Marque = "Dodge",
+        Prix = 100000,
+        Couleur = "Noir",
+    },
+    new Avion()
+    {
+        Marque = "Diamond",
+        Prix = 200000,
+        Speed = 300
+    }
 };
 
-//c["Dante"].Stats[StatType.Hp] = 800000000;
 
-
-
-Entity fusion = c.Entities[0] + c.Entities[1];
-c.Entities.Add(fusion);
-
-Entity dante = new Entity("Dante");
-
-
-foreach (Entity entity in c.Entities)
+foreach(Vehicule v in catalog)
 {
-    Console.WriteLine(entity);
+    Console.WriteLine(v);
+    switch (v)
+    {
+        case Voiture vo:
+            vo.Deplacer(); 
+            break;
+        case Avion a:
+            a.Deplacer(); 
+            break;
+        case Vehicule ve:
+            ve.Deplacer();
+            break;
+    }
 }
 
-dante = c.Entities[1];
 
-Console.WriteLine(dante);
+Object o = new Object();
+o.ToString();
 
 
 #region demo2 indexeur

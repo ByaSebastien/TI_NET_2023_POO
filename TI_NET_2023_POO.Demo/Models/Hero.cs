@@ -11,7 +11,7 @@ namespace TI_NET_2023_POO.Demo.Models
         Humain,
         Nain
     }
-    public partial class Entity
+    public partial class Hero
     {
 
         #region Attributs
@@ -25,8 +25,8 @@ namespace TI_NET_2023_POO.Demo.Models
 
         #region Constructeurs
 
-        public Entity() { }
-        public Entity(string name)
+        public Hero() { }
+        public Hero(string name)
         {
             Random r = new Random();
             Name = name;
@@ -66,9 +66,9 @@ namespace TI_NET_2023_POO.Demo.Models
                    $"Endurance : {Stats[StatType.Stamina]}\n";
         }
 
-        public static Entity operator +(Entity a, Entity b)
+        public static Hero operator +(Hero a, Hero b)
         {
-            Entity result = new Entity();
+            Hero result = new Hero();
             result.Name = a.Name + b.Name;
             result.Stats[StatType.Hp] = a.Stats[StatType.Hp] + b.Stats[StatType.Hp];
             result.Stats[StatType.Strength] = a.Stats[StatType.Strength] + b.Stats[StatType.Strength];
@@ -77,12 +77,12 @@ namespace TI_NET_2023_POO.Demo.Models
             return result;
         }
 
-        public static bool operator ==(Entity a, Entity b)
+        public static bool operator ==(Hero a, Hero b)
         {
             return a.Name == b.Name && a.Stats == b.Stats;
         }
 
-        public static bool operator !=(Entity a, Entity b)
+        public static bool operator !=(Hero a, Hero b)
         {
             return !(a == b);
         }

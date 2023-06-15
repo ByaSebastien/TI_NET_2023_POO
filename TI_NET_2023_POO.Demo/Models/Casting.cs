@@ -9,13 +9,13 @@ namespace TI_NET_2023_POO.Demo.Models
     public class Casting
     {
         public string Name { get; set; }
-        public List<Entity> Entities {get; set;}
+        public List<Hero> Entities {get; set;}
 
-        public Entity? this[string name]
+        public Hero? this[string name]
         {
             get
             {
-                foreach(Entity e in Entities)
+                foreach(Hero e in Entities)
                 {
                     if (e.Name == name)
                     {
