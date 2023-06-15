@@ -53,5 +53,23 @@ namespace TI_NET_2023_POO.Exercices.Models
             }
             Solde += montant;
         }
+
+        public static decimal operator + (Courant c1, Courant c2)
+        {
+            return c1.Solde + c2.Solde;
+        }
+
+        public static decimal operator + (decimal somme, Courant c)
+        {
+            //if(c.Solde > 0)
+            //{
+            //    return somme + c.Solde;
+            //}
+            //else
+            //{
+            //    return somme + 0;
+            //}
+            return somme + (c.Solde > 0 ? c.Solde : 0);
+        }
     }
 }

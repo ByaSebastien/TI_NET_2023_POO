@@ -45,6 +45,9 @@ Console.WriteLine($"{banque["1"].Numero} : {banque["1"].Titulaire.Nom} : {banque
 Console.WriteLine($"{banque["2"].Numero} : {banque["2"].Titulaire.Nom} : {banque["2"].Solde}");
 banque["2"].Depot(2000);
 Console.WriteLine($"{banque["2"].Numero} : {banque["2"].Titulaire.Nom} : {banque["2"].Solde}");
-banque["2"].Retrait(2250);
+banque["2"].Retrait(1000);
 Console.WriteLine($"{banque["2"].Numero} : {banque["2"].Titulaire.Nom} : {banque["2"].Solde}");
 
+Console.WriteLine(1000 + c2);
+
+Console.WriteLine(banque.AvoirDesComptes(p2));

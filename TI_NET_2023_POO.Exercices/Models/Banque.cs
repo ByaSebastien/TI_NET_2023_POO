@@ -35,5 +35,20 @@ namespace TI_NET_2023_POO.Exercices.Models
         {
             Comptes.Remove(numero);
         }
+
+        public decimal AvoirDesComptes(Personne p)
+        {
+            decimal somme = 0;
+
+            foreach(Courant c in Comptes.Values)
+            {
+                if(p == c.Titulaire)
+                {
+                    somme += c;
+                }
+            }
+
+            return somme;
+        }
     }
 }
