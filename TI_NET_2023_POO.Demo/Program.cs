@@ -73,10 +73,6 @@ foreach(Vehicule v in catalog)
 }
 
 
-Object o = new Object();
-o.ToString();
-
-
 #region demo2 indexeur
 
 //Catalog catalog1 = new Catalog();
