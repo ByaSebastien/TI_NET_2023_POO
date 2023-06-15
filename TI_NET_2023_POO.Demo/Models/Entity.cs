@@ -25,6 +25,7 @@ namespace TI_NET_2023_POO.Demo.Models
 
         #region Constructeurs
 
+        public Entity() { }
         public Entity(string name)
         {
             Random r = new Random();
@@ -63,6 +64,27 @@ namespace TI_NET_2023_POO.Demo.Models
             return $"Nom : {Name}\n" +
                    $"Pv : {Stats[StatType.Hp]}\n" +
                    $"Endurance : {Stats[StatType.Stamina]}\n";
+        }
+
+        public static Entity operator +(Entity a, Entity b)
+        {
+            Entity result = new Entity();
+            result.Name = a.Name + b.Name;
+            result.Stats[StatType.Hp] = a.Stats[StatType.Hp] + b.Stats[StatType.Hp];
+            result.Stats[StatType.Strength] = a.Stats[StatType.Strength] + b.Stats[StatType.Strength];
+            result.Stats[StatType.Stamina] = a.Stats[StatType.Stamina] + b.Stats[StatType.Stamina];
+
+            return result;
+        }
+
+        public static bool operator ==(Entity a, Entity b)
+        {
+            return a.Name == b.Name && a.Stats == b.Stats;
+        }
+
+        public static bool operator !=(Entity a, Entity b)
+        {
+            return !(a == b);
         }
 
         #endregion
