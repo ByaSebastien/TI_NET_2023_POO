@@ -8,10 +8,6 @@ namespace TI_NET_2023_POO.Exercices.Models
 {
     public class Personne
     {
-        public Personne()
-        {
-            Console.WriteLine("coucou");
-        }
 
         public string Nom { get; set; }
 

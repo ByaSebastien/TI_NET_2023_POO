@@ -1,5 +1,10 @@
 ﻿using TI_NET_2023_POO.Exercices.Models;
 
+Banque banque = new Banque()
+{
+    Name = "Les voleurs de grands chemins",
+};
+
 Personne p = new Personne();
 
 p.Nom = "Bya";
@@ -11,18 +16,34 @@ c.Numero = "1";
 c.LigneDeCredit = 500;
 c.Titulaire = p;
 
-Console.WriteLine($"{c.Numero} : {c.Titulaire.Nom} : {c.Solde}");
-c.Depot(1000);
-Console.WriteLine($"{c.Numero} : {c.Titulaire.Nom} : {c.Solde}");
-c.Retrait(1250);
-Console.WriteLine($"{c.Numero} : {c.Titulaire.Nom} : {c.Solde}");
-
-
-
 Personne p2 = new Personne()
 {
     Nom = "Bond",
     Prenom = "James",
     DateNaiss = new DateTime(1950, 2, 23)
 };
+
+Courant c2 = new Courant()
+{
+    Numero = "2",
+    LigneDeCredit = 10000,
+    Titulaire = p2,
+};
+
+banque.Ajouter(c);
+banque.Ajouter(c2);
+
+
+
+Console.WriteLine($"{banque["1"].Numero} : {banque["1"].Titulaire.Nom} : {banque["1"].Solde}");
+banque["1"].Depot(1000);
+Console.WriteLine($"{banque["1"].Numero} : {banque["1"].Titulaire.Nom} : {banque["1"].Solde}");
+banque["1"].Retrait(1250);
+Console.WriteLine($"{banque["1"].Numero} : {banque["1"].Titulaire.Nom} : {banque["1"].Solde}");
+
+Console.WriteLine($"{banque["2"].Numero} : {banque["2"].Titulaire.Nom} : {banque["2"].Solde}");
+banque["2"].Depot(2000);
+Console.WriteLine($"{banque["2"].Numero} : {banque["2"].Titulaire.Nom} : {banque["2"].Solde}");
+banque["2"].Retrait(2250);
+Console.WriteLine($"{banque["2"].Numero} : {banque["2"].Titulaire.Nom} : {banque["2"].Solde}");
 

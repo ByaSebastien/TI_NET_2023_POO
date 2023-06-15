@@ -8,11 +8,17 @@ namespace TI_NET_2023_POO.Demo.Models
 {
     public class Catalog
     {
-        private Dictionary<string, Person> _contact = new Dictionary<string, Person>();
+        private Dictionary<string, Person> _contact;
 
         public string Name { get; set; }
 
-        public Dictionary<string, Person> Contact { get { return _contact; } }
+        public Dictionary<string, Person> Contact 
+        { 
+            get 
+            { 
+                return _contact ??= new Dictionary<string,Person>();
+            } 
+        }
 
         public Person this[string phoneNumber]
         {
@@ -36,13 +42,12 @@ namespace TI_NET_2023_POO.Demo.Models
 
         public void AddPerson(Person p)
         {
-            _contact.Add(p.PhoneNumber,p);
+            Contact.Add(p.PhoneNumber,p);
         }
 
         public void RemovePerson(string phoneNumber)
         {
-            _contact.Remove(phoneNumber);
+            Contact.Remove(phoneNumber);
         }
-        
     }
 }
