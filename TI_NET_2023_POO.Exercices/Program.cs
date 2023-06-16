@@ -61,4 +61,5 @@ ICustomer customer = c2;
 IBanker banker = c2;
 
 customer.Depot(1000);
+
 banker.AppliquerInteret();
