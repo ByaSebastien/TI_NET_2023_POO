@@ -57,3 +57,8 @@ Console.WriteLine($"{banque["2"].Numero} : {banque["2"].Titulaire.Nom} : {banque
 c2.AppliquerInteret();
 Console.WriteLine($"{banque["2"].Numero} : {banque["2"].Titulaire.Nom} : {banque["2"].Solde}");
 
+ICustomer customer = c2;
+IBanker banker = c2;
+
+customer.Depot(1000);
+banker.AppliquerInteret();

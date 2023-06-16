@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TI_NET_2023_POO.Exercices.Models
 {
-    public abstract class Compte
+    public abstract class Compte : ICustomer, IBanker
     {
 
         public string Numero { get; set; }
@@ -20,7 +20,7 @@ namespace TI_NET_2023_POO.Exercices.Models
             Retrait(montant, 0);
         }
 
-        public void Retrait(decimal montant,decimal ligneDeCredit)
+        protected void Retrait(decimal montant,decimal ligneDeCredit)
         {
             if (montant < 0)
             {

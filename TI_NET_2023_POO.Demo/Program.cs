@@ -73,9 +73,13 @@ using static TI_NET_2023_POO.Demo.Utils.Dice;
 //Console.WriteLine(s.Trim(true));
 
 
-IBookService bookService = new BookService();
+//IBookService bookService = new BookService();
 
-bookService.Add(new Book());
+//bookService.Add(new Book());
+
+IBateau a = new Amphibie();
+
+a.Tourne();
 
 
 #region demo2 indexeur

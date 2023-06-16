@@ -15,6 +15,11 @@ namespace TI_NET_2023_POO.Demo.Models.Vehicules
             Console.WriteLine("Et je roule roule roule roule dans les rues de ma ville");
         }
 
+        public void Tourne()
+        {
+            Console.WriteLine("je tourne le volant");
+        }
+
         public override string ToString()
         {
             return base.ToString() + $" : {Couleur}";
