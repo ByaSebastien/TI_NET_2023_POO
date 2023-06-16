@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TI_NET_2023_POO.Exercices.Models
 {
-    public class Compte
+    public abstract class Compte
     {
 
         public string Numero { get; set; }
@@ -40,6 +40,13 @@ namespace TI_NET_2023_POO.Exercices.Models
                 return;
             }
             Solde += montant;
+        }
+
+        protected abstract decimal CalculInteret();
+
+        public void AppliquerInteret()
+        {
+            Solde += CalculInteret();
         }
 
         public static decimal operator +(Compte c1, Compte c2)

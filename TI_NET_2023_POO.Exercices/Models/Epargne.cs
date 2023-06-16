@@ -19,5 +19,10 @@ namespace TI_NET_2023_POO.Exercices.Models
                 DateDernierRetrait = DateTime.Now;
             }
         }
+
+        protected override decimal CalculInteret()
+        {
+            return Solde * .045M;
+        }
     }
 }

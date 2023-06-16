@@ -1,5 +1,7 @@
 ﻿using TI_NET_2023_POO.Demo.Models;
 using TI_NET_2023_POO.Demo.Models.Vehicules;
+using TI_NET_2023_POO.Demo.Utils;
+using static TI_NET_2023_POO.Demo.Utils.Dice;
 
 //Casting c = new Casting()
 //{
@@ -56,6 +58,14 @@ foreach(Vehicule v in catalog)
     v.Deplacer();
 }
 
+Console.WriteLine(Vehicule._id);
+
+
+Console.WriteLine(Throw(5,3));
+
+string s = "coucou";
+
+Console.WriteLine(s.SuperCamelCase("TEST"));
 
 #region demo2 indexeur
 
