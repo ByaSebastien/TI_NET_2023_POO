@@ -35,11 +35,6 @@ using TI_NET_2023_POO.Demo.Models.Vehicules;
 
 List<Vehicule> catalog = new List<Vehicule>()
 {
-    new Vehicule()
-    {
-        Marque = "",
-        Prix = 99999999,
-    },
     new Voiture()
     {
         Marque = "Dodge",
@@ -58,18 +53,7 @@ List<Vehicule> catalog = new List<Vehicule>()
 foreach(Vehicule v in catalog)
 {
     Console.WriteLine(v);
-    switch (v)
-    {
-        case Voiture vo:
-            vo.Deplacer(); 
-            break;
-        case Avion a:
-            a.Deplacer(); 
-            break;
-        case Vehicule ve:
-            ve.Deplacer();
-            break;
-    }
+    v.Deplacer();
 }
 
 
