@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,6 +30,14 @@ namespace TI_NET_2023_POO.Demo.Utils
             }
 
             return result + s;
+        }
+        public static string Trim(this string str, bool isSuperTrim)
+        {
+            if (isSuperTrim)
+            {
+                return str.Replace(" ", "");
+            }
+            return str.Trim();
         }
     }
 }

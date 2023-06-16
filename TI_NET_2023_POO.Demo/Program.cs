@@ -1,5 +1,6 @@
 ﻿using TI_NET_2023_POO.Demo.Models;
 using TI_NET_2023_POO.Demo.Models.Vehicules;
+using TI_NET_2023_POO.Demo.Services;
 using TI_NET_2023_POO.Demo.Utils;
 using static TI_NET_2023_POO.Demo.Utils.Dice;
 
@@ -35,37 +36,47 @@ using static TI_NET_2023_POO.Demo.Utils.Dice;
 
 //Employee noreen = new Employee();
 
-List<Vehicule> catalog = new List<Vehicule>()
-{
-    new Voiture()
-    {
-        Marque = "Dodge",
-        Prix = 100000,
-        Couleur = "Noir",
-    },
-    new Avion()
-    {
-        Marque = "Diamond",
-        Prix = 200000,
-        Speed = 300
-    }
-};
+//List<Vehicule> catalog = new List<Vehicule>()
+//{
+//    new Voiture()
+//    {
+//        Marque = "Dodge",
+//        Prix = 100000,
+//        Couleur = "Noir",
+//    },
+//    new Avion()
+//    {
+//        Marque = "Diamond",
+//        Prix = 200000,
+//        Speed = 300
+//    }
+//};
 
 
-foreach(Vehicule v in catalog)
-{
-    Console.WriteLine(v);
-    v.Deplacer();
-}
+//foreach(Vehicule v in catalog)
+//{
+//    Console.WriteLine(v);
+//    v.Deplacer();
+//}
 
-Console.WriteLine(Vehicule._id);
+//Console.WriteLine(Vehicule._id);
 
 
-Console.WriteLine(Throw(5,3));
+//Console.WriteLine(Throw(5,3));
 
-string s = "coucou";
+//string s = "  cou  cou  ";
 
-Console.WriteLine(s.SuperCamelCase("TEST"));
+//Console.WriteLine(s.SuperCamelCase("TEST"));
+
+//Console.WriteLine(Extention.SuperCamelCase(s,"TEST"));
+
+//Console.WriteLine(s.Trim(true));
+
+
+IBookService bookService = new BookService();
+
+bookService.Add(new Book());
+
 
 #region demo2 indexeur
 
