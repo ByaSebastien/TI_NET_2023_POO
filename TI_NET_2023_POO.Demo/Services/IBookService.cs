@@ -13,7 +13,7 @@ namespace TI_NET_2023_POO.Demo.Services
 
         List<Book> GetAll();
 
-        Book Get(string isbn);
+        Book Get(Func<Book, bool> predicate);
 
         bool Update(string isbn, Book b);
 

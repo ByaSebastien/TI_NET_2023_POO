@@ -7,16 +7,18 @@ using TI_NET_2023_POO.Demo.Models;
 
 namespace TI_NET_2023_POO.Demo.Services
 {
+
     public class BookService : IBookService
     {
+        public static List<Book> list = new List<Book>();
         public Book Add(Book b)
         {
             throw new NotImplementedException();
         }
 
-        public Book Get(string isbn)
+        public Book Get(Func<Book,bool> predicate)
         {
-            throw new NotImplementedException();
+            return list.SingleOrDefault(predicate);
         }
 
         public List<Book> GetAll()

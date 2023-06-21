@@ -1,4 +1,6 @@
 ﻿using System.Numerics;
+using System.Threading.Channels;
+using TI_NET_2023_POO.Demo.DemoDelegates;
 using TI_NET_2023_POO.Demo.Exceptions;
 using TI_NET_2023_POO.Demo.Models;
 using TI_NET_2023_POO.Demo.Models.Vehicules;
@@ -179,22 +181,76 @@ using static TI_NET_2023_POO.Demo.Utils.Dice;
 
 #endregion
 
-Vehicule v = new Voiture("Dodge", 10000, "Noir");
+//Vehicule v = new Voiture("Dodge", 10000, "Noir");
 
-try
+//try
+//{
+//    v.Prix = 5;
+//    Console.WriteLine("Success");
+//}catch(VehiculeException e)
+//{
+//    Console.WriteLine(e.Message);
+//}catch(ArgumentOutOfRangeException e)
+//{
+//    v.Prix = 0;
+//    Console.WriteLine(e.Message);
+//}catch(Exception e)
+//{
+//    Console.WriteLine(e.Message);
+//}
+
+//Console.WriteLine(v);
+
+#region lambda / delegate
+static void Addition(int a,int b)
 {
-    v.Prix = 5;
-    Console.WriteLine("Success");
-}catch(VehiculeException e)
-{
-    Console.WriteLine(e.Message);
-}catch(ArgumentOutOfRangeException e)
-{
-    v.Prix = 0;
-    Console.WriteLine(e.Message);
-}catch(Exception e)
-{
-    Console.WriteLine(e.Message);
+    Console.WriteLine(a + b);
 }
 
-Console.WriteLine(v);
+DemoDelegate demo = new DemoDelegate();
+
+demo.del += Addition;
+
+demo.del += delegate (int a, int b)
+{
+    Console.WriteLine(a + b);
+};
+
+demo.del += (int a, int b) =>
+{
+    Console.WriteLine(a - b);
+};
+
+myDel lambda = (int a, int b) => Console.WriteLine(a * b);
+
+demo.del += lambda;
+
+demo.del -= lambda;
+
+demo.del(5, 3);
+
+
+
+Action<string,int> a = delegate (string name,int age) { Console.WriteLine("coucou " + name + " tu as " + age + " ans"); };
+
+a("seb",32);
+
+List<string> list = new List<string>()
+        {
+            "Pierre",
+            "Paul",
+            "Jacque",
+            "Bernadette",
+            "Henriette",
+            "Betsy"
+        };
+
+//list.ForEach(s => Console.WriteLine(s));
+
+list.Where(s => s.Contains("e")).ToList().ForEach(s => Console.WriteLine(s));
+
+//IBookService bookService = new BookService();
+
+//bookService.Get(b => b.Title.Contains("seb"));
+
+#endregion

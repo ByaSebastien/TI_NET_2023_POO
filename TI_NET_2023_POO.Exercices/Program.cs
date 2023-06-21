@@ -1,4 +1,5 @@
-﻿using TI_NET_2023_POO.Exercices.Models;
+﻿using TI_NET_2023_POO.Exercices.Exceptions;
+using TI_NET_2023_POO.Exercices.Models;
 
 Banque banque = new Banque()
 {
@@ -48,5 +49,28 @@ IBanker banker = c2;
 customer.Depot(1000);
 
 banker.AppliquerInteret();
+
+try
+{
+    c.Depot(-100);
+    c.Retrait(1000000);
+    Compte c3 = new Courant(new Personne("Doe", "John", new DateTime(1923, 1, 1)), "3", -500);
+}
+catch(ArgumentOutOfRangeException e)
+{
+    Console.WriteLine(e.Message);
+}
+catch(SoldeInsufisantException e)
+{
+    Console.WriteLine(e.Message);
+}
+catch(InvalidOperationException e)
+{
+    Console.WriteLine(e.Message);
+}
+catch(Exception)
+{
+    throw;
+}
 
 

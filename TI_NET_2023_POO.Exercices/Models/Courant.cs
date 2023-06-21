@@ -27,7 +27,7 @@ namespace TI_NET_2023_POO.Exercices.Models
             {
                 if(value < 0)
                 {
-                    return;
+                    throw new InvalidOperationException("WTF?!");
                 }
                 _ligneDeCredit = value;
             }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TI_NET_2023_POO.Exercices.Exceptions;
 
 namespace TI_NET_2023_POO.Exercices.Models
 {
@@ -34,11 +35,11 @@ namespace TI_NET_2023_POO.Exercices.Models
         {
             if (montant < 0)
             {
-                return;
+                throw new ArgumentOutOfRangeException("Montant doit etre positif");
             }
-            if(montant - Solde < -ligneDeCredit)
+            if(Solde - montant < -ligneDeCredit)
             {
-
+                throw new SoldeInsufisantException();
             }
             Solde -= montant;
         }
@@ -47,7 +48,7 @@ namespace TI_NET_2023_POO.Exercices.Models
         {
             if (montant < 0)
             {
-                return;
+                throw new ArgumentOutOfRangeException("Montant doit etre positif");
             }
             Solde += montant;
         }
