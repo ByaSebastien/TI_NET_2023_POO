@@ -1,38 +1,22 @@
-﻿using TI_NET_2023_POO.Demo.Models.Vehicules;
-using TI_NET_2023_POO.Exercices.Models;
+﻿using TI_NET_2023_POO.Exercices.Models;
 
 Banque banque = new Banque()
 {
     Name = "Les voleurs de grands chemins",
 };
 
-Personne p = new Personne();
+Personne p = new Personne("Bya","Seb", new DateTime(1991,3,27));
 
-p.Nom = "Bya";
-p.Prenom = "Seb";
-p.DateNaiss = new DateTime(1991, 3, 27);
+Courant c = new Courant("1",p,500);
 
-Courant c = new Courant();
-c.Numero = "1";
-c.LigneDeCredit = 500;
-c.Titulaire = p;
+Personne p2 = new Personne("Bond", "James", new DateTime(1950, 2, 23));
 
-Personne p2 = new Personne()
-{
-    Nom = "Bond",
-    Prenom = "James",
-    DateNaiss = new DateTime(1950, 2, 23)
-};
-
-Courant c2 = new Courant()
-{
-    Numero = "2",
-    LigneDeCredit = 10000,
-    Titulaire = p2,
-};
+Courant c2 = new Courant("2", p2, 10000);
 
 banque.Ajouter(c);
 banque.Ajouter(c2);
+
+p.Equals(p2);
 
 
 

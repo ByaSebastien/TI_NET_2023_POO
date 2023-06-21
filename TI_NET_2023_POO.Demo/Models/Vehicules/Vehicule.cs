@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using TI_NET_2023_POO.Demo.Exceptions;
 
 namespace TI_NET_2023_POO.Demo.Models.Vehicules
 {
@@ -11,8 +12,11 @@ namespace TI_NET_2023_POO.Demo.Models.Vehicules
     {
         public static int _id = 1;
 
+        private decimal _prix;
+
         public Vehicule(string marque, decimal prix)
         {
+            Id = _id++;
             Marque = marque;
             Prix = prix;
         }
@@ -21,7 +25,22 @@ namespace TI_NET_2023_POO.Demo.Models.Vehicules
 
         public string Marque { get; set; }
 
-        public decimal Prix { get; set; }
+        public decimal Prix
+        {
+            get { return _prix; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("Le prix doit etre positif");
+                }
+                if(value == 5)
+                {
+                    throw new NotFiveVehiculeException();
+                }
+                _prix = value;
+            }
+        }
 
         public abstract void Deplacer();
 

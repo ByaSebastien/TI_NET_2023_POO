@@ -8,6 +8,13 @@ namespace TI_NET_2023_POO.Exercices.Models
 {
     public class Courant : Compte
     {
+        public Courant (string numero, Personne titulaire) : base(numero,titulaire) { }
+        public Courant (string numero, Personne titulaire, decimal solde) : base(numero,titulaire,solde) { }
+        public Courant (Personne titulaire, string numero, decimal ligneDeCredit) : base(numero, titulaire)
+        {
+            LigneDeCredit = ligneDeCredit;
+        }
+
         private decimal _ligneDeCredit;
 
         public decimal LigneDeCredit
@@ -16,7 +23,7 @@ namespace TI_NET_2023_POO.Exercices.Models
             {
                 return _ligneDeCredit; 
             }
-            set
+            private set
             {
                 if(value < 0)
                 {

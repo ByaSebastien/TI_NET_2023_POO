@@ -8,12 +8,22 @@ namespace TI_NET_2023_POO.Exercices.Models
 {
     public abstract class Compte : ICustomer, IBanker
     {
+        protected Compte(string numero, Personne titulaire)
+        {
+            Numero = numero;
+            Titulaire = titulaire;
+        }
 
-        public string Numero { get; set; }
+        protected Compte(string numero, Personne titulaire, decimal solde) : this(numero,titulaire)
+        {
+            Solde = solde;
+        }
+
+        public string Numero { get; private set; }
 
         public decimal Solde { get; private set; }
 
-        public Personne Titulaire { get; set; }
+        public Personne Titulaire { get; private set; }
 
         public virtual void Retrait(decimal montant)
         {

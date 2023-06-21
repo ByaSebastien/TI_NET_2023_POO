@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using TI_NET_2023_POO.Demo.Exceptions;
 using TI_NET_2023_POO.Demo.Models;
 using TI_NET_2023_POO.Demo.Models.Vehicules;
 using TI_NET_2023_POO.Demo.Services;
@@ -82,20 +83,20 @@ using static TI_NET_2023_POO.Demo.Utils.Dice;
 
 //a.Tourne();
 
-Console.WriteLine(Vehicule._id);
-Vehicule v1 = new Voiture();
-Console.WriteLine(Vehicule._id);
-Vehicule v2 = new Avion();
-Console.WriteLine(Vehicule._id);
-v1.Marque = "Dodge";
-v1.Prix = 10000;
+//Console.WriteLine(Vehicule._id);
+//Vehicule v1 = new Voiture();
+//Console.WriteLine(Vehicule._id);
+//Vehicule v2 = new Avion();
+//Console.WriteLine(Vehicule._id);
+//v1.Marque = "Dodge";
+//v1.Prix = 10000;
 
 
-v2.Marque = "Diamond DA-40";
-v2.Prix = 250000;
+//v2.Marque = "Diamond DA-40";
+//v2.Prix = 250000;
 
-Console.WriteLine(v1);
-Console.WriteLine(v2);
+//Console.WriteLine(v1);
+//Console.WriteLine(v2);
 
 //if (v1 == v2)
 
@@ -105,11 +106,11 @@ Console.WriteLine(v2);
 
 ////bookService.Add(new Book());
 
-List<Vehicule> vehicules = new List<Vehicule>();
-Garage g = new Garage();
+//List<Vehicule> vehicules = new List<Vehicule>();
+//Garage g = new Garage();
 
-g.Vehicules.Add(v1);
-g.Vehicules.Add(v2);
+//g.Vehicules.Add(v1);
+//g.Vehicules.Add(v2);
 
 //foreach (Vehicule v in g.Vehicules)
 //{
@@ -117,30 +118,30 @@ g.Vehicules.Add(v2);
 //}
 //Console.WriteLine(g[10]);
 
-Dictionary<int, Vehicule> vehiculesDict = new Dictionary<int, Vehicule>();
+//Dictionary<int, Vehicule> vehiculesDict = new Dictionary<int, Vehicule>();
 
-vehiculesDict.Add(v1.Id, v1);
-vehiculesDict.Add(v2.Id, v2);
+//vehiculesDict.Add(v1.Id, v1);
+//vehiculesDict.Add(v2.Id, v2);
 
-foreach(KeyValuePair<int,Vehicule> kvp in vehiculesDict)
-{
-    Console.WriteLine(kvp.Key);
-    kvp.Value.Deplacer();
-}
+//foreach(KeyValuePair<int,Vehicule> kvp in vehiculesDict)
+//{
+//    Console.WriteLine(kvp.Key);
+//    kvp.Value.Deplacer();
+//}
 
 
 
-foreach(Vehicule v in vehiculesDict.Values)
-{
-    Console.WriteLine(v);
-}
+//foreach(Vehicule v in vehiculesDict.Values)
+//{
+//    Console.WriteLine(v);
+//}
 
-IBookService bookService = new BookService();
+//IBookService bookService = new BookService();
 
-Console.WriteLine(bookService.Add(new Book()).ISBN);
+//Console.WriteLine(bookService.Add(new Book()).ISBN);
 
-Book b = new Book();
-Console.WriteLine(b.ISBN);
+//Book b = new Book();
+//Console.WriteLine(b.ISBN);
 
 #region demo2 indexeur
 
@@ -177,3 +178,23 @@ Console.WriteLine(b.ISBN);
 //Console.WriteLine(communes.ContainsKey(4347));
 
 #endregion
+
+Vehicule v = new Voiture("Dodge", 10000, "Noir");
+
+try
+{
+    v.Prix = 5;
+    Console.WriteLine("Success");
+}catch(VehiculeException e)
+{
+    Console.WriteLine(e.Message);
+}catch(ArgumentOutOfRangeException e)
+{
+    v.Prix = 0;
+    Console.WriteLine(e.Message);
+}catch(Exception e)
+{
+    Console.WriteLine(e.Message);
+}
+
+Console.WriteLine(v);
