@@ -8,6 +8,14 @@ namespace TI_NET_2023_POO.Demo.Models
 {
     public class Person
     {
+        public Person(int id, string name, string phoneNumber, string address)
+        {
+            Id = id;
+            Name = name;
+            PhoneNumber = phoneNumber;
+            Address = address;
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
