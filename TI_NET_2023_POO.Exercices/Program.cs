@@ -1,4 +1,5 @@
-﻿using TI_NET_2023_POO.Exercices.Models;
+﻿using TI_NET_2023_POO.Demo.Models.Vehicules;
+using TI_NET_2023_POO.Exercices.Models;
 
 Banque banque = new Banque()
 {
@@ -63,3 +64,5 @@ IBanker banker = c2;
 customer.Depot(1000);
 
 banker.AppliquerInteret();
+
+

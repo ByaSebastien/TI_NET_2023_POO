@@ -9,7 +9,7 @@ namespace TI_NET_2023_POO.Demo.Services
 {
     public class BookService : IBookService
     {
-        public void Add(Book b)
+        public Book Add(Book b)
         {
             throw new NotImplementedException();
         }

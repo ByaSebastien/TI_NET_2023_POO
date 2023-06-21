@@ -9,7 +9,7 @@ namespace TI_NET_2023_POO.Demo.Services
 {
     public interface IBookService
     {
-        void Add(Book b);
+        Book Add(Book b);
 
         List<Book> GetAll();
 

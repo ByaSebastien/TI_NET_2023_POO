@@ -11,12 +11,13 @@ namespace TI_NET_2023_POO.Demo.Models.Vehicules
     {
         public static int _id = 1;
 
-        public Vehicule()
+        public Vehicule(string marque, decimal prix)
         {
-            Id = _id++;
+            Marque = marque;
+            Prix = prix;
         }
 
-        public int Id { get; set; }
+        internal int Id { get; private set; }
 
         public string Marque { get; set; }
 
@@ -28,6 +29,14 @@ namespace TI_NET_2023_POO.Demo.Models.Vehicules
         public override string ToString()
         {
             return $"{Id} : {Marque} : {Prix}";
+        }
+
+        public static void Jammy()
+        {
+
+            Console.WriteLine("Mais qu'est ce qu'un vehicule jammy ?");
+
+            Console.WriteLine("un vehicule mon brave ca sert a sedéplacer!");
         }
     }
 }
