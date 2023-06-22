@@ -276,16 +276,41 @@ using static TI_NET_2023_POO.Demo.Utils.Dice;
 
 #region Event
 
-Garage garage = new Garage();
+//Garage garage = new Garage();
 
-Console.WriteLine("Voulez vous etre averti quand un nouveau vehicule est disponible? y/n");
-string choix = Console.ReadLine();
-if (choix == "y")
-{
-    garage.NouveauVehiculeEvent += garage.NouveauVehiculeAction;
-}
+//Console.WriteLine("Voulez vous etre averti quand un nouveau vehicule est disponible? y/n");
+//string choix = Console.ReadLine();
+//if (choix == "y")
+//{
+//    garage.NouveauVehiculeEvent += garage.NouveauVehiculeAction;
+//}
 
-garage.AjouterVehicule(new Voiture("Dodge", 10000, "Noir"));
-garage.AjouterVehicule(new Avion("Diamond",250000));
+//garage.AjouterVehicule(new Voiture("Dodge", 10000, "Noir"));
+//garage.AjouterVehicule(new Avion("Diamond",250000));
+
+#endregion
+
+#region Generique
+
+IBookService bookService = new BookService();
+IHeroService heroService = new HeroService();
+
+bookService.Add(new Book());
+bookService.Get(b => b.Title == "Harry Potter");
+
+heroService.Add(new Hero());
+
+//bookService.Update();
+//heroService.Update();
+
+//delegate void Action (Hero h, int i, Vehicule v);
+Action<Hero, int, Vehicule> myAction;
+
+myAction = (Hero h, int i, Vehicule v) => Console.WriteLine("Coooooool");
+
+//delegate bool Func(Client c, string s, Employee e);
+Func<Client,string,Employee,bool> myFunc;
+
+myFunc = (Client client, string s, Employee e) => true;
 
 #endregion

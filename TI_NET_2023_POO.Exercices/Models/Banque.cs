@@ -28,6 +28,7 @@ namespace TI_NET_2023_POO.Exercices.Models
 
         public void Ajouter(Compte c)
         {
+            c.PassageEnNegatifEvent += PassageEnNegatifAction;
             Comptes.Add(c.Numero, c);
         }
         
@@ -49,6 +50,11 @@ namespace TI_NET_2023_POO.Exercices.Models
             }
 
             return somme;
+        }
+
+        private void PassageEnNegatifAction(Compte c)
+        {
+            Console.WriteLine($"Le compte {c.Numero} vient de passer en négatif.");
         }
     }
 }

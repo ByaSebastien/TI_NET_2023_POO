@@ -35,7 +35,12 @@ namespace TI_NET_2023_POO.Exercices.Models
 
         public override void Retrait(decimal montant)
         {
+            bool estPositif = Solde >= 0;
             Retrait(montant,LigneDeCredit);
+            if(estPositif && Solde < 0)
+            {
+                RaisePassageEnNegatifEvent();
+            }
         }
 
         protected override decimal CalculInteret()

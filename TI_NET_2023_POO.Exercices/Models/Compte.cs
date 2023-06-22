@@ -7,8 +7,10 @@ using TI_NET_2023_POO.Exercices.Exceptions;
 
 namespace TI_NET_2023_POO.Exercices.Models
 {
+    public delegate void PassageEnNegatifDelegate(Compte c);
     public abstract class Compte : ICustomer, IBanker
     {
+        public event PassageEnNegatifDelegate PassageEnNegatifEvent;
         protected Compte(string numero, Personne titulaire)
         {
             Numero = numero;
@@ -58,6 +60,11 @@ namespace TI_NET_2023_POO.Exercices.Models
         public void AppliquerInteret()
         {
             Solde += CalculInteret();
+        }
+
+        protected void RaisePassageEnNegatifEvent()
+        {
+            PassageEnNegatifEvent?.Invoke(this);
         }
 
         public static decimal operator +(Compte c1, Compte c2)
