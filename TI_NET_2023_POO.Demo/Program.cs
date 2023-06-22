@@ -206,28 +206,27 @@ static void Addition(int a,int b)
 {
     Console.WriteLine(a + b);
 }
+MyDel del;
 
-DemoDelegate demo = new DemoDelegate();
+del = Addition;
 
-demo.del += Addition;
-
-demo.del += delegate (int a, int b)
+del += delegate (int a, int b)
 {
     Console.WriteLine(a + b);
 };
 
-demo.del += (int a, int b) =>
+del += (int a, int b) =>
 {
     Console.WriteLine(a - b);
 };
 
-myDel lambda = (int a, int b) => Console.WriteLine(a * b);
+MyDel lambda = (int a, int b) => Console.WriteLine(a * b);
 
-demo.del += lambda;
+del += lambda;
 
-demo.del -= lambda;
+del -= lambda;
 
-demo.del(5, 3);
+del(5, 3);
 
 
 
@@ -245,6 +244,8 @@ List<string> list = new List<string>()
             "Betsy"
         };
 
+
+
 //list.ForEach(s => Console.WriteLine(s));
 
 list.Where(s => s.Contains("e")).ToList().ForEach(s => Console.WriteLine(s));
@@ -252,5 +253,23 @@ list.Where(s => s.Contains("e")).ToList().ForEach(s => Console.WriteLine(s));
 //IBookService bookService = new BookService();
 
 //bookService.Get(b => b.Title.Contains("seb"));
+//Func<int,int,bool> 
+
+MyPredicate predicate = delegate (int a, int b)
+{
+    Console.WriteLine(a == b);
+    return a == b;
+};
+
+predicate += (int a, int b) =>
+{
+    Console.WriteLine(a < b);
+    Addition(a,b);
+    return (a < b);
+};
+
+//predicate = (int a, int b) => a > b;
+
+predicate?.Invoke(5, 5);
 
 #endregion
