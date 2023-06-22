@@ -202,74 +202,90 @@ using static TI_NET_2023_POO.Demo.Utils.Dice;
 //Console.WriteLine(v);
 
 #region lambda / delegate
-static void Addition(int a,int b)
+//static void Addition(int a,int b)
+//{
+//    Console.WriteLine(a + b);
+//}
+//MyDel del;
+
+//del = Addition;
+
+//del += delegate (int a, int b)
+//{
+//    Console.WriteLine(a + b);
+//};
+
+//del += (int a, int b) =>
+//{
+//    Console.WriteLine(a - b);
+//};
+
+//MyDel lambda = (int a, int b) => Console.WriteLine(a * b);
+
+//del += lambda;
+
+//del -= lambda;
+
+//del(5, 3);
+
+
+
+//Action<string,int> a = delegate (string name,int age) { Console.WriteLine("coucou " + name + " tu as " + age + " ans"); };
+
+//a("seb",32);
+
+//List<string> list = new List<string>()
+//        {
+//            "Pierre",
+//            "Paul",
+//            "Jacque",
+//            "Bernadette",
+//            "Henriette",
+//            "Betsy"
+//        };
+
+
+
+////list.ForEach(s => Console.WriteLine(s));
+
+//list.Where(s => s.Contains("e")).ToList().ForEach(s => Console.WriteLine(s));
+
+////IBookService bookService = new BookService();
+
+////bookService.Get(b => b.Title.Contains("seb"));
+////Func<int,int,bool> 
+
+//MyPredicate predicate = delegate (int a, int b)
+//{
+//    Console.WriteLine(a == b);
+//    return a == b;
+//};
+
+//predicate += (int a, int b) =>
+//{
+//    Console.WriteLine(a < b);
+//    Addition(a,b);
+//    return (a < b);
+//};
+
+////predicate = (int a, int b) => a > b;
+
+//predicate?.Invoke(5, 5);
+
+#endregion
+
+#region Event
+
+Garage garage = new Garage();
+
+Console.WriteLine("Voulez vous etre averti quand un nouveau vehicule est disponible? y/n");
+string choix = Console.ReadLine();
+if (choix == "y")
 {
-    Console.WriteLine(a + b);
+    garage.NouveauVehiculeEvent += garage.NouveauVehiculeAction;
 }
-MyDel del;
 
-del = Addition;
-
-del += delegate (int a, int b)
-{
-    Console.WriteLine(a + b);
-};
-
-del += (int a, int b) =>
-{
-    Console.WriteLine(a - b);
-};
-
-MyDel lambda = (int a, int b) => Console.WriteLine(a * b);
-
-del += lambda;
-
-del -= lambda;
-
-del(5, 3);
-
-
-
-Action<string,int> a = delegate (string name,int age) { Console.WriteLine("coucou " + name + " tu as " + age + " ans"); };
-
-a("seb",32);
-
-List<string> list = new List<string>()
-        {
-            "Pierre",
-            "Paul",
-            "Jacque",
-            "Bernadette",
-            "Henriette",
-            "Betsy"
-        };
-
-
-
-//list.ForEach(s => Console.WriteLine(s));
-
-list.Where(s => s.Contains("e")).ToList().ForEach(s => Console.WriteLine(s));
-
-//IBookService bookService = new BookService();
-
-//bookService.Get(b => b.Title.Contains("seb"));
-//Func<int,int,bool> 
-
-MyPredicate predicate = delegate (int a, int b)
-{
-    Console.WriteLine(a == b);
-    return a == b;
-};
-
-predicate += (int a, int b) =>
-{
-    Console.WriteLine(a < b);
-    Addition(a,b);
-    return (a < b);
-};
-
-//predicate = (int a, int b) => a > b;
-
-predicate?.Invoke(5, 5);
+garage.AjouterVehicule(new Voiture("Dodge", 10000, "Noir"));
+garage.AjouterVehicule(new Avion("Diamond",250000));
 
 #endregion
